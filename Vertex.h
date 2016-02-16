@@ -11,8 +11,8 @@ public:
     Vertex() : y(0), x(0) {}
     Vertex(int xPosition, int yPosition) : x(xPosition), y(yPosition) {}
     ~Vertex() {}
-    int getXposition() {return x;}
-    int getYposition() {return y;}
+    int getXposition() const {return x;}
+    int getYposition() const {return y;}
     
 private:
     int x;

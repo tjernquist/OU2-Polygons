@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Polygon.h</itemPath>
+      <itemPath>SortedVector.h</itemPath>
       <itemPath>Vertex.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -51,6 +52,8 @@
       </item>
       <item path="Polygon.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SortedVector.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Vertex.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
@@ -79,6 +82,8 @@
       <item path="Polygon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Polygon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SortedVector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Vertex.h" ex="false" tool="3" flavor2="0">
       </item>

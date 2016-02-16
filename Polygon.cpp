@@ -7,6 +7,7 @@
 using namespace std;
 
 void Polygon::add(Vertex v) {
+
     arraySize++;
     Vertex * tempVertexes = new Vertex[arraySize];
     for (int i = 0; i < arraySize; i++) {
@@ -18,9 +19,11 @@ void Polygon::add(Vertex v) {
     }
     delete [] vertices;
     vertices = tempVertexes;
+
 }
 
 Polygon::Polygon(Vertex vertexArray[], int size) {
+
     arraySize = size;
     vertices = new Vertex[size];
 
@@ -30,6 +33,7 @@ Polygon::Polygon(Vertex vertexArray[], int size) {
 }
 
 float Polygon::area() {
+
     float area = 0.0f;
 
     for (int i = 0; i < arraySize - 1; ++i) {
@@ -44,6 +48,7 @@ float Polygon::area() {
 }
 
 int Polygon::miny() {
+
     int yHolder = vertices[0].getYposition();
 
     for (int i = 0; i < arraySize; i++) {
@@ -55,6 +60,7 @@ int Polygon::miny() {
 }
 
 int Polygon::maxy() {
+
     int yHolder = vertices[0].getYposition();
 
     for (int i = 0; i < arraySize; i++) {
@@ -66,6 +72,7 @@ int Polygon::maxy() {
 }
 
 int Polygon::minx() {
+
     int xHolder = vertices[0].getXposition();
 
     for (int i = 0; i < arraySize; i++) {
@@ -78,6 +85,7 @@ int Polygon::minx() {
 }
 
 int Polygon::maxx() {
+
     int xHolder = vertices[0].getXposition();
 
     for (int i = 0; i < arraySize; i++) {
@@ -90,4 +98,47 @@ int Polygon::maxx() {
     return xHolder;
 }
 
+ostream& operator<<(ostream &output, const Polygon& polygon) { //Kolla denna!
 
+    output << "{";
+    for (int i = 0; i < polygon.numVertices(); i++) {
+        output << "(" << polygon.vertices[i].getXposition() << "," << polygon.vertices[i].getYposition() << ")";
+    }
+    output << "}";
+
+    return output;
+
+}
+
+bool operator<(Polygon polygon1, Polygon polygon2) {
+    if (polygon1.area() < polygon2.area()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const Polygon & Polygon::operator=(const Polygon & arr) {
+
+    if (this != &arr) {
+        arraySize = arr.arraySize;
+        delete[] vertices;
+
+        vertices = new Vertex[arraySize];
+
+        for (int i = 0; i < arraySize; i++)
+            vertices[i] = arr.vertices[i];
+    }
+    return *this;
+}
+
+Polygon::Polygon(const Polygon & a) : arraySize(a.arraySize) {
+
+    if (arraySize > 0) {
+        vertices = new Vertex[arraySize];
+
+        for (int i = 0; i < arraySize; i++)
+            vertices[i] = a.vertices[i];
+    } else
+        vertices = 0;
+}
